@@ -1,0 +1,23 @@
+.current-vec-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .description {
+    font-style: italic;
+  }
+  
+  .table {
+    margin: 20px auto;
+    width: 70%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+  }
+  
+  .summary {
+    margin-top: 20px;
+  }
+  

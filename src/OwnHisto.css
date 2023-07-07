@@ -1,0 +1,46 @@
+.own-histo-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .description {
+    font-style: italic;
+  }
+  
+  .own-histo-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 70%;
+  }
+  
+  .own-histo-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+  }
+  
+  .own-histo-list li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .time-in {
+    font-weight: bold;
+  }
+  
+  .time-out {
+    margin-left: 10px;
+  }
+  .table {
+    margin: 20px auto;
+    width: 70%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+  }
+  
+  
+  
