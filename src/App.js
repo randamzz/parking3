@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import AccUser from './AccUser';
@@ -10,7 +10,10 @@ import AccAdmin from './AccAdmin';
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import UserProfile from './UserProfile' ;
-import { users } from './Data';
+import Search from './Search';
+
+
+import axios from 'axios';
 import {
   MDBBtn,
   MDBContainer,
@@ -59,13 +62,19 @@ function Deplacer(vecEnCours, vecHisto) {
 }
 
 function App() {
-
+const [users, setusers] = useState([]);
+ //Charger les donnes de json server 
+useEffect(() => {
+      fetch('http://localhost:8000/Users')
+      .then(response => response.json())
+      .then(jsonData => setusers(jsonData));
+  }, []);
 // deplacer vecHisto=Deplacer(vecEnCours,vecHisto)  ;
   const [loggedInUser, setLoggedInUser] = useState(null); // au deb user n est pas connecter
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // fct de cnx
-  const handleLogin = () => {
+    const handleLogin = () => {
     const emailExists = checkEmail(email, users);
     if (!emailExists) {
       window.alert("Email does not exist ");
@@ -87,7 +96,7 @@ const handleLogout = () => {
   Cookies.remove('email');
   setLoggedInUser(null);
 };
-  // Si il est connecter
+  // Si il n est pas connecter
   if (!loggedInUser) {
     // Aff  page  connexion (formulaire)
     return (
@@ -125,14 +134,13 @@ const handleLogout = () => {
             <Routes>
             <Route path="/UserProfile" element={<UserProfile email={cookieValue}/>} />
             <Route path="/CurrentVec"element={<CurrentVec />}/>
+            <Route path="/Search" element={<Search />} />
             <Route path="/Gestion" element={<Gestion />} />
             </Routes>
           </BrowserRouter>
         </div>}
         </div>
-      );
-
-      
+      );  
     } else { 
       // espace utilisateur
       return (

@@ -1,12 +1,35 @@
 import React from 'react';
-import { vecEnCours, users } from './Data'; // Importer vecEnCours et users depuis Data.js
+//import { vecEnCours, users } from './Data'; // Importer vecEnCours et users depuis Data.js
 import './CurrentVec.css';
+import axios from 'axios';
 
 class CurrentVec extends React.Component {
+state ={ vecEnCours :[] , users:[] }
+
+componentDidMount() {
+  axios.get('http://localhost:8000/VecEnCours')
+    .then(response => {
+      console.log(response.data);
+      this.setState({ vecEnCours: response.data });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+  axios.get('http://localhost:8000/Users')
+    .then(response => {
+      console.log(response.data);
+      this.setState({ users: response.data });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+  
   render() {
     const cap = 3;
-    const garageFull = vecEnCours.length >= cap;
-    const remainingSpots = cap - vecEnCours.length;
+    const garageFull = this.state.vecEnCours.length >= cap;
+    const remainingSpots = cap - this.state.vecEnCours.length;
 
     return (
       <div className="current-vec-container">
@@ -23,9 +46,9 @@ class CurrentVec extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {vecEnCours.map((vehicle) => (
+            {this.state.vecEnCours.map((vehicle) => (
               <tr key={vehicle.id}>
-                <td>{users.find((user) => user.id === vehicle.id_user)?.email}</td> {/* Affichage de l'email de l'utilisateur */}
+                <td>{this.state.users.find((user) => user.id === vehicle.id_user)?.email}</td> {/* Affichage de l'email de l'utilisateur */}
                 <td>{vehicle.licensePlate}</td>
                 <td>{vehicle.timeIn}</td>
                 <td>{vehicle.timeOut}</td>
@@ -35,7 +58,7 @@ class CurrentVec extends React.Component {
         </table>
         <div className="summary">
           <p className="total-vehicles">
-            <span className="car-emoji">&#128663;</span> Total in garage: {vecEnCours.length}
+            <span className="car-emoji">&#128663;</span> Total in garage: {this.state.vecEnCours.length}
           </p>
           {garageFull ? (
             <p className="no-spots">

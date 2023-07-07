@@ -1,16 +1,27 @@
 import React from 'react';
-import './OwnHisto.css'; 
-import { vecHisto } from './Data';
+import axios from 'axios';
+import './OwnHisto.css';
+
 class OwnHisto extends React.Component {
   constructor(props) {
     super(props);
-    const { userId } = props;
-    // Prendre l'historique de ce user
-    const myVecHisto = vecHisto.filter((vehicle) => vehicle.id_user === userId);
-    // State
     this.state = {
-      myVecHisto: myVecHisto,
+      myVecHisto: [],
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:8000/VecHisto')
+      .then(response => {
+        console.log(response.data);
+        const { userId } = this.props;
+        const myVecHisto = response.data.filter(vehicle => vehicle.id_user === userId);
+        this.setState({ myVecHisto: myVecHisto });
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   render() {
@@ -28,7 +39,7 @@ class OwnHisto extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {myVecHisto.map((vehicle) => (
+            {myVecHisto.map(vehicle => (
               <tr key={vehicle.id}>
                 <td>{vehicle.timeIn}</td>
                 <td>{vehicle.timeOut}</td>

@@ -28,6 +28,7 @@ const AccAdmin = ({ children }) => {
         <ul className="navbar-links">
           <li className="navbar-link"><Link className="nav-link" to="/Gestion">Garage Management</Link></li>
           <li className="navbar-link"><Link className="nav-link" to="/CurrentVec">Current List</Link></li>
+          <li className="navbar-link"><Link className="nav-link" to="/Search">Search</Link></li>
         </ul>
         <div className="navbar-right">
           <div className="user-info">

@@ -30,6 +30,7 @@ const AccUser = ({ children }) => {
         <ul className="navbar-links">
           <li className="navbar-link"><Link className="nav-link" to="/OwnHisto">Own history</Link></li>
           <li className="navbar-link"><Link className="nav-link" to="/CurrentVec">Current List</Link></li>
+
         </ul>
         <div className="navbar-right">
           <div className="user-info">
