@@ -11,8 +11,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import UserProfile from './UserProfile' ;
 import Search from './Search';
-
-
 import axios from 'axios';
 import {
   MDBBtn,
@@ -147,7 +145,7 @@ const handleLogout = () => {
         <div>
           { <div className="App">
           <BrowserRouter>
-            <AccUser loggedInUser={loggedInUser} email={cookieValue} />
+            <AccUser  handleLogout={handleLogout} email={cookieValue} />
             <Routes>
             <Route path="/UserProfile" element={<UserProfile email={cookieValue}/>} />
             <Route path="/CurrentVec"element={<CurrentVec  />}/>

@@ -9,7 +9,7 @@
     },
     {
       "id": 3,
-      "id_user": 3,
+      "id_user": 4,
       "licensePlate": "12345B98",
       "timeIn": "2023-01-01T12:00:00Z",
       "timeOut": "2023-01-01T14:00:00Z"
@@ -24,18 +24,20 @@
   ],
   "VecHisto": [
     {
-      "id": 2,
-      "id_user": 4,
-      "licensePlate": "526H6",
+      "licensePlate": "526H7",
       "timeIn": "2023-01-02T09:00:00Z",
-      "timeOut": "2023-01-02T11:00:00Z"
+      "timeOut": "2023-01-02T11:00:00Z",
+      "id": 2
     },
+    [],
+    [],
     {
-      "id": 3,
-      "licensePlate": "\t226L8",
-      "timeIn": "2023-07-14T11:11",
-      "timeOut": "2023-07-21T11:11"
-    }
+      "id": 4,
+      "licensePlate": "7400",
+      "timeIn": "2023-07-09T11:11",
+      "timeOut": "2023-07-17T11:11"
+    },
+    []
   ],
   "Users": [
     {

@@ -7,16 +7,12 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import './Acc.css';
 import App from './App';
 
-const AccAdmin = ({ children }) => {
-  const [loggedInUser, setLoggedInUser] = useState(false);
+const AccAdmin = ({ children ,handleLogout }) => {
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-   Cookies.remove('cookieValue');
-    setLoggedInUser(false);
-    navigate('/');
+  const handleLogoutClick = () => {
+    handleLogout(); 
+    navigate('/login'); 
   };
-
   const cookieValue = Cookies.get('email');
 
   return (
@@ -35,8 +31,9 @@ const AccAdmin = ({ children }) => {
             <FontAwesomeIcon icon={faUser} className="user-icon" />
             <li className="navbar-link">  <Link className="user-email" to="/UserProfile">{cookieValue ? cookieValue : ''}</Link></li>
           </div>
-          <Button className="logout-button" onClick={handleLogout} variant="secondary">Logout</Button>
-        </div>
+          <Button className="logout-button" onClick={handleLogoutClick} variant="secondary">
+            Logout
+          </Button>        </div>
       </nav>
       {children}
     </div>

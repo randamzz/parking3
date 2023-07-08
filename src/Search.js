@@ -45,12 +45,12 @@ class Search extends React.Component {
   }
   
 //Rechreche
-  handleSearch = () => {
-    const { vecEnCours, lp } = this.state;
-    const vecHistoFiltred = vecEnCours.filter((vehicle) =>
+handleSearch = () => {
+    const { vecHistoFiltred, lp } = this.state;
+    const filteredVecHisto = vecHistoFiltred.filter((vehicle) =>
       vehicle.licensePlate.includes(lp)
     );
-    this.setState({ vecHistoFiltred: vecHistoFiltred });
+    this.setState({ vecHistoFiltred: filteredVecHisto });
   };
   
 //Anule recherche
@@ -98,13 +98,13 @@ class Search extends React.Component {
                 value={lp}
                 onChange={(e) => this.setState({ lp: e.target.value })}
               />
-              <button className="btn btn-primary" onClick={this.handleSearch}>
-                <FontAwesomeIcon icon={faSearch} /> Search
-              </button>
-              <button className="btn btn-secondary" onClick={this.handleClearSearch}>
+                      <button className="button" onClick={this.handleSearch}>
+          <FontAwesomeIcon icon={faSearch} /> Search
+        </button>
+              <button className="button" onClick={this.handleClearSearch}>
                 <FontAwesomeIcon icon={faTimes} /> Clear
               </button>
-              <button className="btn btn-success" onClick={this.handleRefresh}>
+              <button className="button" onClick={this.handleRefresh}>
                 <FontAwesomeIcon icon={faSyncAlt} /> Refresh
               </button>
             </div>
