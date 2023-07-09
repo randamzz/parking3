@@ -81,7 +81,7 @@ class Cud extends Component {
     }
 
     const timeInDate = new Date(parsedTimeIn);
-    if (timeInDate < Date.now()) {
+    if (timeInDate > Date.now()) {
       alert('Please choose a correct time entry');
       return;
     }
@@ -184,7 +184,6 @@ class Cud extends Component {
 
     return (
       <div className="gestion-container">
-        <br />
         <h2 className="text-center">Management</h2>
         <p className="text-center description">Here you can manage your website.</p>
         <div className="input-group mb-3">

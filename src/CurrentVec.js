@@ -24,7 +24,7 @@ componentDidMount() {
     });
 }
 render() {
-  const cap = 3; // Normalment 500
+  const cap = 4; // Normalment 500
   const garageFull = this.state.vecEnCours.length >= cap;
   const remainingSpots = cap - this.state.vecEnCours.length;
   return (
@@ -62,8 +62,9 @@ render() {
           </p>
         ) : (
           <p className="remaining-spots">
-            <span role="img" aria-label="Alert Warning" className="warning-emoji">⚠️</span>
-            {remainingSpots} spot{remainingSpots !== 1 ? 's' : ''} left
+        
+           {remainingSpots !== 1 ? <p>{remainingSpots} spot lefts </p>: <p>     <span role="img" aria-label="Alert Warning" className="warning-emoji">⚠️</span>1 spot left </p>}  
+           
           </p>
         )}
       </div>

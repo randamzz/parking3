@@ -24,18 +24,18 @@
   ],
   "VecHisto": [
     {
+      "id": 1,
+      "id_user": 1,
+      "licensePlate": "78945A40",
+      "timeIn": "2020-01-01T12:00:00Z",
+      "timeOut": "2020-01-01T14:00:00Z"
+    },
+    {
       "id": 4,
       "id_user": 4,
       "licensePlate": "12345B98",
-      "timeIn": "2023-07-11T11:11",
-      "timeOut": "2023-07-12T11:11"
-    },
-    {
-      "id": 5,
-      "id_user": 5,
-      "licensePlate": "526H6",
-      "timeIn": "2023-01-02T09:00:00Z",
-      "timeOut": "2023-01-02T11:00:00Z"
+      "timeIn": "2020-07-11T11:11",
+      "timeOut": "2020-07-12T11:12"
     }
   ],
   "Users": [
