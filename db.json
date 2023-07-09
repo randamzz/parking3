@@ -9,7 +9,7 @@
     },
     {
       "id": 3,
-      "id_user": 4,
+      "id_user": 3,
       "licensePlate": "12345B98",
       "timeIn": "2023-01-01T12:00:00Z",
       "timeOut": "2023-01-01T14:00:00Z"
@@ -24,20 +24,19 @@
   ],
   "VecHisto": [
     {
-      "licensePlate": "526H7",
-      "timeIn": "2023-01-02T09:00:00Z",
-      "timeOut": "2023-01-02T11:00:00Z",
-      "id": 2
-    },
-    [],
-    [],
-    {
       "id": 4,
-      "licensePlate": "7400",
-      "timeIn": "2023-07-09T11:11",
-      "timeOut": "2023-07-17T11:11"
+      "id_user": 4,
+      "licensePlate": "12345B98",
+      "timeIn": "2023-07-11T11:11",
+      "timeOut": "2023-07-12T11:11"
     },
-    []
+    {
+      "id": 5,
+      "id_user": 5,
+      "licensePlate": "526H6",
+      "timeIn": "2023-01-02T09:00:00Z",
+      "timeOut": "2023-01-02T11:00:00Z"
+    }
   ],
   "Users": [
     {
@@ -62,6 +61,12 @@
       "id": 4,
       "email": "user4@example.com",
       "password": "password4",
+      "type": 0
+    },
+    {
+      "id": 5,
+      "email": "user5@example.com",
+      "password": "password5",
       "type": 0
     }
   ]

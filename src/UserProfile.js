@@ -9,7 +9,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/Users')
+      .get('http://localhost:5000/Users')
       .then((response) => {
         const currentUser = response.data.find((user) => user.email === cookieValue);
         setUserProfile(currentUser);

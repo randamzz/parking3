@@ -5,7 +5,7 @@ import AccUser from './AccUser';
 import CurrentVec from './CurrentVec';
 import Cookies from 'js-cookie';
 import OwnHisto from './OwnHisto';
-import Gestion from './Gestion';
+import Cud from './Cud';
 import AccAdmin from './AccAdmin';
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
@@ -47,7 +47,6 @@ function checkPassword(email, users, password) {
     }
   }
 }
-*/
 // Deplacer de current a historique
 function Deplacer(vecEnCours, vecHisto) {
   for (let i = 0; i < vecEnCours.length; i++) {
@@ -58,32 +57,31 @@ function Deplacer(vecEnCours, vecHisto) {
   }
   return vecHisto;
 }
+*/
 
 function App() {
 const [users, setusers] = useState([]);
  //Charger les donnes de json server 
 useEffect(() => {
-      fetch('http://localhost:8000/Users')
+      fetch('http://localhost:5000/Users')
       .then(response => response.json())
       .then(jsonData => setusers(jsonData));
   }, []);
-// deplacer vecHisto=Deplacer(vecEnCours,vecHisto)  ;
-  const [loggedInUser, setLoggedInUser] = useState(null); // au deb user n est pas connecter
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  // fct de cnx
-    const handleLogin = () => {
+
+const [loggedInUser, setLoggedInUser] = useState(null); // au deb user n est pas connecter
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+// fct de cnx
+const handleLogin = () => {
     const emailExists = checkEmail(email, users);
     if (!emailExists) {
       window.alert("Email does not exist ");
     } else {
       const user = users.find(user => user.email === email);
       const passwordCorrect = user.password === password;
-      
       if (passwordCorrect) {
         setLoggedInUser(user);
         Cookies.set('email', user.email);
-
       } else {
         window.alert("Incorrect password");
       }
@@ -96,7 +94,7 @@ const handleLogout = () => {
 };
   // Si il n est pas connecter
   if (!loggedInUser) {
-    // Aff  page  connexion (formulaire)
+    // Aff  page  connexion 
     return (
      <MDBContainer fluid>
      <MDBRow className='d-flex justify-content-center align-items-center h-100'>
@@ -120,7 +118,7 @@ const handleLogout = () => {
    </MDBContainer>
     );
   } else {
-    const { id, email, type } = loggedInUser; // /prendre les val user au lieu d utulise user.id !!DESTRUCTRING //          <Button onClick={handleLogout}  variant="secondary">Logout</Button>{' '}
+    const { id, email, type } = loggedInUser; // /prendre les val user au lieu d utulise user.id !!DESTRUCTRING 
     const cookieValue = Cookies.get('email');
     // espace admin
     if (type === 1) {
@@ -133,7 +131,7 @@ const handleLogout = () => {
             <Route path="/UserProfile" element={<UserProfile email={cookieValue}/>} />
             <Route path="/CurrentVec"element={<CurrentVec />}/>
             <Route path="/Search" element={<Search />} />
-            <Route path="/Gestion" element={<Gestion />} />
+            <Route path="/Cud" element={<Cud />} />
             </Routes>
           </BrowserRouter>
         </div>}
@@ -159,6 +157,5 @@ const handleLogout = () => {
     }
   }
 }
-
 export default App;
 

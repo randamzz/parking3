@@ -19,7 +19,6 @@
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
-    background-color: #4caf50;
     color: white;
     border: none;
     cursor: pointer;
@@ -32,45 +31,21 @@
     margin-left: 1%;
 
   }
-  .add-button {
-    background-color: #008cba;
-  }
-  
-  .edit-button {
-    background-color: #f90;
-  }
-  
-  .delete-button {
-    background-color: #d40000;
-  }
-  
+
   .add-button span,
   .edit-button i,
   .delete-button i {
     margin-right: 5px;
   }
   
-  .table-container {
+  .table {
     margin: 20px auto;
     width: 70%;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
   }
   
   .table th,
   .table td {
     padding: 10px;
-    border: 1px solid #ccc;
   }
-  
-  .table th {
-    background-color: #f5f5f5;
-  }
-  
-  .table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  

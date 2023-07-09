@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './OwnHisto.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class OwnHisto extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class OwnHisto extends React.Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8000/VecHisto')
+      .get('http://localhost:5000/VecHisto')
       .then(response => {
         console.log(response.data);
         const { userId } = this.props;
@@ -24,14 +25,15 @@ class OwnHisto extends React.Component {
       });
   }
 
+  
   render() {
     const { myVecHisto } = this.state;
-
+  
     return (
       <div className="own-histo-container">
         <h2>Your History</h2>
         <p className="description">Here are the vehicles in your history.</p>
-        <table className="table">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>Time In</th>
@@ -39,7 +41,7 @@ class OwnHisto extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {myVecHisto.map(vehicle => (
+            {myVecHisto.map((vehicle) => (
               <tr key={vehicle.id}>
                 <td>{vehicle.timeIn}</td>
                 <td>{vehicle.timeOut}</td>
